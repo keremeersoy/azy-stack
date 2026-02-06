@@ -1,132 +1,118 @@
-# ⚡️ Azy Stack
+# Azy Stack
 
-<div align="center">
+A robust, modern full-stack starter template built with **Next.js 16**, **React 19**, and **Tailwind CSS 4**. This project is pre-configured with industry-standard tools for authentication, database management, form handling, and UI components, allowing you to focus on building features immediately.
 
-![Next.js](https://img.shields.io/badge/Next.js_15-black?style=for-the-badge&logo=next.js&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+## 🚀 Key Features
 
-**The ultimate production-ready starter kit for modern full-stack web applications.**
-Designed for speed, developer experience, and scalability.
+- **Modern Framework**: Built on Next.js 16 and React 19 for optimal performance and developer experience.
+- **Type-Safe Database**: Integrated **Prisma ORM** with **PostgreSQL** for reliable data management.
+- **Secure Authentication**: Fully configured **Better-Auth** supporting Email/Password and Google OAuth.
+- **Advanced Forms**: **TanStack Form** with **Zod** validation for complex form state management.
+- **Stunning UI**: **Tailwind CSS 4** combined with **shadcn/ui** components and **Lucide React** icons.
+- **State Management**: **TanStack Query** for efficient server state handling.
+- **Toast Notifications**: **Sonner** for beautiful, customizable toast notifications.
 
-[Features](#-features) • [Getting Started](#-getting-started) • [Database Setup](#-database-setup) • [Configuration](#-configuration) • [Deployment](#-deployment)
+## 🛠️ Tech Stack
 
-</div>
-
----
-
-## 🚀 Features
-
-- **🧠 Modern Core:** Built on [Next.js 15](https://nextjs.org) (App Router) and [React 19](https://react.dev).
-- **🛡️ Type Safety:** End-to-end type safety with [TypeScript](https://www.typescriptlang.org) and [Zod](https://zod.dev).
-- **🔐 Auth:** Complete authentication with [Better-Auth](https://better-auth.com) (Email/Pass + Google).
-- **🗄️ Database:** [Prisma ORM](https://www.prisma.io) with PostgreSQL.
-- **⚡️ State & Forms:** Powered by [TanStack Query](https://tanstack.com/query) & [TanStack Form](https://tanstack.com/form).
-- **🎨 UI/UX:** Beautiful UI with [Shadcn UI](https://ui.shadcn.com) and [Tailwind CSS 4](https://tailwindcss.com).
-- **🌗 Theme:** Built-in Dark/Light mode support via `next-themes`.
-- **🍞 Toasts:** Elegant notifications using [Sonner](https://sonner.emilkowal.ski).
-
----
+- **Framework**: [Next.js 16](https://nextjs.org/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Database**: [PostgreSQL](https://www.postgresql.org/) & [Prisma](https://www.prisma.io/)
+- **Authentication**: [Better-Auth](https://better-auth.com/)
+- **Forms**: [TanStack Form](https://tanstack.com/form) & [Zod](https://zod.dev/)
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/) & [Radix UI](https://www.radix-ui.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Utilities**: `clsx`, `tailwind-merge`
 
 ## 🏁 Getting Started
 
+Follow these steps to get the project up and running locally.
+
 ### Prerequisites
 
-Ensure you have **Node.js 18+** installed on your machine.
+- Node.js (v20 or higher recommended)
+- npm or pnpm
+- PostgreSQL database
 
 ### Installation
 
-1.  **Clone the repository**
-    \`\`\`bash
-    git clone https://github.com/keremeersoy/azy-stack.git
+1.  **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/yourusername/azy-stack.git
     cd azy-stack
-    \`\`\`
+    ```
 
-2.  **Install Dependencies**
-    \`\`\`bash
+2.  **Install dependencies:**
+
+    ```bash
     npm install
-    \`\`\`
+    # or
+    pnpm install
+    ```
 
-3.  **Setup Environment**
-    \`\`\`bash
-    cp .env.example .env
-    \`\`\`
-    *(See [Configuration](#-configuration) for details)*
+3.  **Environment Setup:**
 
-4.  **Run Development Server**
-    \`\`\`bash
+    Create a `.env` file in the root directory and add the following variables:
+
+    ```env
+    # Database
+    DATABASE_URL="postgresql://user:password@localhost:5432/azy_stack?schema=public"
+
+    # Authentication (Better-Auth)
+    BETTER_AUTH_SECRET="your_secret_key"
+    BETTER_AUTH_URL="http://localhost:3000"
+
+    # Google OAuth (Optional)
+    GOOGLE_CLIENT_ID="your_google_client_id"
+    GOOGLE_CLIENT_SECRET="your_google_client_secret"
+    ```
+
+4.  **Database Setup:**
+
+    Push the Prisma schema to your database:
+
+    ```bash
+    npx prisma db push
+    ```
+
+5.  **Run the Development Server:**
+
+    ```bash
     npm run dev
-    \`\`\`
+    ```
 
----
-
-## 🗄️ Database Setup
-
-This project uses **PostgreSQL**. We recommend cloud providers like **Neon** or **Supabase** for the easiest setup.
-
-1.  Create a project on [Neon](https://neon.tech) or [Supabase](https://supabase.com).
-2.  Get your **Connection String** from the dashboard.
-3.  Add it to your `.env` file as `DATABASE_URL`.
-
-\`\`\`bash
-npx prisma db push
-\`\`\`
-*Run this command to sync your schema with the database.*
-
----
-
-## ⚙️ Configuration
-
-Create a `.env` file in the root directory with the following variables:
-
-\`\`\`env
-# 🗄️ Database
-DATABASE_URL="postgres://user:pass@host:5432/db?sslmode=require"
-
-# 🔐 Authentication
-BETTER_AUTH_SECRET="your-generated-secret-key"
-BETTER_AUTH_URL="http://localhost:3000" # Production URL when deployed
-
-# 🌐 Social Auth (Optional)
-GOOGLE_CLIENT_ID="your-google-client-id"
-GOOGLE_CLIENT_SECRET="your-google-client-secret"
-```
-
-> 💡 **Tip:** Generate a secure secret key by running: `openssl rand -base64 32`
-
----
+    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## 📂 Project Structure
 
-```txt
-├── app/                  # Application routes (App Router)
-│   ├── api/              # API Routes
-│   ├── (auth)/           # Auth pages group
-│   └── layout.tsx        # Root layout
-├── components/           # UI Components
-│   ├── ui/               # Shadcn primitives
-│   └── providers.tsx     # Global providers
-├── lib/                  # Utilities & Config
-│   ├── auth.ts           # Auth configuration
+```text
+azy-stack/
+├── app/                  # Next.js App Router pages and layouts
+│   ├── sign-in/          # Authentication pages
+│   └── ...
+├── components/           # Reusable UI components
+│   ├── ui/               # shadcn/ui primitives
+│   └── ...
+├── lib/                  # Utility functions and configurations
+│   ├── auth.ts           # Better-Auth configuration
 │   └── utils.ts          # Helper functions
-└── prisma/               # Database Schema
+├── prisma/               # Database schema and migrations
+│   └── schema.prisma
+├── public/               # Static assets
+└── ...
 ```
 
----
+## 🤝 Contributing
 
-## 🚀 Deployment
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-The easiest way to deploy is using **Vercel**.
-
-1.  Push your code to GitHub.
-2.  Import the project in [Vercel](https://vercel.com).
-3.  Add your `Environment Variables`.
-4.  **Deploy!** 🚀
-
----
+1.  Fork the project
+2.  Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is open source and available under the MIT License.
