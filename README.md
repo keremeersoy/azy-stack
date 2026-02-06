@@ -92,15 +92,15 @@ BETTER_AUTH_URL="http://localhost:3000" # Production URL when deployed
 # 🌐 Social Auth (Optional)
 GOOGLE_CLIENT_ID="your-google-client-id"
 GOOGLE_CLIENT_SECRET="your-google-client-secret"
-\`\`\`
+```
 
 > 💡 **Tip:** Generate a secure secret key by running: `openssl rand -base64 32`
 
 ---
 
-## � Project Structure
+## 📂 Project Structure
 
-\`\`\`txt
+```txt
 ├── app/                  # Application routes (App Router)
 │   ├── api/              # API Routes
 │   ├── (auth)/           # Auth pages group
@@ -112,11 +112,11 @@ GOOGLE_CLIENT_SECRET="your-google-client-secret"
 │   ├── auth.ts           # Auth configuration
 │   └── utils.ts          # Helper functions
 └── prisma/               # Database Schema
-\`\`\`
+```
 
 ---
 
-## � Deployment
+## 🚀 Deployment
 
 The easiest way to deploy is using **Vercel**.
 
