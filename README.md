@@ -1,148 +1,132 @@
-# Azy Stack - Full-Stack Next.js Starter
+# ⚡️ Azy Stack
 
-A production-ready generic starter template for building modern full-stack web applications. Optimized for speed, developer experience, and scalability.
+<div align="center">
 
-## 🚀 Tech Stack
+![Next.js](https://img.shields.io/badge/Next.js_15-black?style=for-the-badge&logo=next.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 
-- **Framework:** [Next.js 15 (App Router)](https://nextjs.org)
-- **Language:** [TypeScript](https://www.typescriptlang.org)
-- **Styling:** [Tailwind CSS 4](https://tailwindcss.com) & [Shadcn UI](https://ui.shadcn.com)
-- **Auth:** [Better-Auth](https://better-auth.com) (Email/Pass & Google)
-- **Database (ORM):** [Prisma](https://www.prisma.io) with PostgreSQL
-- **State & Forms:** [TanStack Query](https://tanstack.com/query) & [TanStack Form](https://tanstack.com/form)
-- **Validation:** [Zod](https://zod.dev)
-- **Toasts:** [Sonner](https://sonner.emilkowal.ski)
-- **Theme:** Dark/Light mode support (`next-themes`)
+**The ultimate production-ready starter kit for modern full-stack web applications.**
+Designed for speed, developer experience, and scalability.
+
+[Features](#-features) • [Getting Started](#-getting-started) • [Database Setup](#-database-setup) • [Configuration](#-configuration) • [Deployment](#-deployment)
+
+</div>
 
 ---
 
-## 🛠️ Prerequisites
+## 🚀 Features
 
-Before you begin, ensure you have the following installed:
-
-- **Node.js** (v18 or higher) -> [Download](https://nodejs.org/)
+- **🧠 Modern Core:** Built on [Next.js 15](https://nextjs.org) (App Router) and [React 19](https://react.dev).
+- **🛡️ Type Safety:** End-to-end type safety with [TypeScript](https://www.typescriptlang.org) and [Zod](https://zod.dev).
+- **🔐 Auth:** Complete authentication with [Better-Auth](https://better-auth.com) (Email/Pass + Google).
+- **🗄️ Database:** [Prisma ORM](https://www.prisma.io) with PostgreSQL.
+- **⚡️ State & Forms:** Powered by [TanStack Query](https://tanstack.com/query) & [TanStack Form](https://tanstack.com/form).
+- **🎨 UI/UX:** Beautiful UI with [Shadcn UI](https://ui.shadcn.com) and [Tailwind CSS 4](https://tailwindcss.com).
+- **🌗 Theme:** Built-in Dark/Light mode support via `next-themes`.
+- **🍞 Toasts:** Elegant notifications using [Sonner](https://sonner.emilkowal.ski).
 
 ---
 
 ## 🏁 Getting Started
 
-### 1. Clone the repository
+### Prerequisites
 
-\`\`\`bash
-git clone https://github.com/your-username/azy-stack.git
-cd azy-stack
-\`\`\`
+Ensure you have **Node.js 18+** installed on your machine.
 
-### 2. Install dependencies
+### Installation
 
-\`\`\`bash
-npm install
-\`\`\`
+1.  **Clone the repository**
+    \`\`\`bash
+    git clone https://github.com/keremeersoy/azy-stack.git
+    cd azy-stack
+    \`\`\`
 
-### 3. Setup Environment Variables
+2.  **Install Dependencies**
+    \`\`\`bash
+    npm install
+    \`\`\`
 
-Create a \`.env\` file in the root directory:
+3.  **Setup Environment**
+    \`\`\`bash
+    cp .env.example .env
+    \`\`\`
+    *(See [Configuration](#-configuration) for details)*
 
-\`\`\`bash
-cp .env.example .env
-\`\`\`
-
-*(If `.env.example` is missing, create a `.env` file and check the Configuration section below.)*
-
----
-
-## 🗄️ Database Setup (Cloud)
-
-This project is configured for **PostgreSQL**. We recommend using a cloud provider like **Neon** or **Supabase**.
-
-1.  **Create a Project:** Go to [Neon](https://neon.tech) or [Supabase](https://supabase.com) and create a new project.
-2.  **Get Connection String:** Copy the connection string.
-    *   **Neon:** Look for the "Connection string" in the Dashboard.
-    *   **Supabase:** Go to Project Settings -> Database -> Connection URI -> Transaction (ensure "Use connection pooling" is checked if available, though direct connection works too for starters).
-3.  **Add to `.env`:** Paste it as your `DATABASE_URL`.
-
-\`\`\`env
-DATABASE_URL="postgres://user:password@endpoint.neon.tech/neondb?sslmode=require"
-\`\`\`
-
-> **Note:** You can connect to this same database URL using tools like **pgAdmin4**, **DBeaver**, or **TablePlus** to view and manage your data manually from your computer.
+4.  **Run Development Server**
+    \`\`\`bash
+    npm run dev
+    \`\`\`
 
 ---
 
-## ⚙️ Configuration (.env)
+## 🗄️ Database Setup
 
-Your `.env` file should look like this:
+This project uses **PostgreSQL**. We recommend cloud providers like **Neon** or **Supabase** for the easiest setup.
 
-\`\`\`env
-# Database Connection (from Neon/Supabase/etc.)
-DATABASE_URL="postgres://..."
-
-# Authentication (Better-Auth)
-BETTER_AUTH_SECRET="REPLACE_WITH_A_SECURE_RANDOM_STRING"
-BETTER_AUTH_URL="http://localhost:3000" # Change to your domain in production
-
-# OAuth Providers (Optional, needed for Google Sign In)
-GOOGLE_CLIENT_ID="your-google-client-id"
-GOOGLE_CLIENT_SECRET="your-google-client-secret"
-\`\`\`
-
-> **Tip:** You can generate a random secret for `BETTER_AUTH_SECRET` by running `openssl rand -base64 32` in your terminal.
-
----
-
-## 💾 Initialize the Database
-
-Once your `.env` is set up with your cloud database URL, run the migration to create the tables:
+1.  Create a project on [Neon](https://neon.tech) or [Supabase](https://supabase.com).
+2.  Get your **Connection String** from the dashboard.
+3.  Add it to your `.env` file as `DATABASE_URL`.
 
 \`\`\`bash
 npx prisma db push
 \`\`\`
-
-This command connects to your remote database and creates the necessary tables defined in `prisma/schema.prisma`.
-
----
-
-## ▶️ Running the App
-
-Start the development server:
-
-\`\`\`bash
-npm run dev
-\`\`\`
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+*Run this command to sync your schema with the database.*
 
 ---
 
-## 📁 Project Structure
+## ⚙️ Configuration
 
+Create a `.env` file in the root directory with the following variables:
+
+\`\`\`env
+# 🗄️ Database
+DATABASE_URL="postgres://user:pass@host:5432/db?sslmode=require"
+
+# 🔐 Authentication
+BETTER_AUTH_SECRET="your-generated-secret-key"
+BETTER_AUTH_URL="http://localhost:3000" # Production URL when deployed
+
+# 🌐 Social Auth (Optional)
+GOOGLE_CLIENT_ID="your-google-client-id"
+GOOGLE_CLIENT_SECRET="your-google-client-secret"
 \`\`\`
-├── app/                  # Next.js App Router pages and API routes
-├── components/           # Reusable UI components
-│   ├── ui/               # Shadcn UI primitives
-│   └── ...               # Custom components
-├── lib/                  # Utilities, auth config, clients
-├── prisma/               # Database schema
-└── public/               # Static assets
+
+> 💡 **Tip:** Generate a secure secret key by running: `openssl rand -base64 32`
+
+---
+
+## � Project Structure
+
+\`\`\`txt
+├── app/                  # Application routes (App Router)
+│   ├── api/              # API Routes
+│   ├── (auth)/           # Auth pages group
+│   └── layout.tsx        # Root layout
+├── components/           # UI Components
+│   ├── ui/               # Shadcn primitives
+│   └── providers.tsx     # Global providers
+├── lib/                  # Utilities & Config
+│   ├── auth.ts           # Auth configuration
+│   └── utils.ts          # Helper functions
+└── prisma/               # Database Schema
 \`\`\`
 
-## 🔄 Deployment
+---
 
-This application is ready to be deployed on **Vercel**.
+## � Deployment
+
+The easiest way to deploy is using **Vercel**.
 
 1.  Push your code to GitHub.
-2.  Import the project in Vercel.
-3.  Add your **Environment Variables** (DATABASE_URL, BETTER_AUTH_SECRET, etc.) in the specific Vercel project settings.
-4.  Deploy!
+2.  Import the project in [Vercel](https://vercel.com).
+3.  Add your `Environment Variables`.
+4.  **Deploy!** 🚀
 
 ---
 
-## ❓ Troubleshooting
+## 📄 License
 
-**"User was denied access on the database"**
-- Check if your `DATABASE_URL` is correct.
-- Ensure your cloud database password doesn't contain special characters that break the URL format (if so, URL encode them).
-
-**"Sign in failed"**
-- Ensure you have run `npx prisma db push`.
-- Check browser console and server terminal for logs.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
